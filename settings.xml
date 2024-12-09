@@ -1,0 +1,46 @@
+<settings>
+    <profiles>
+        <profile>
+            <id>nameValue</id>
+            <repositories>
+                <repository>
+                    <id>env_id</id>
+                    <url>urlValue</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id></id>
+                    <url></url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id></id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url></url>
+                </repository>
+                <repository>
+                    <id></id>
+                    <url></url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url></url>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>public</id>
+                    <url></url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>N</activeProfile>
+    </activeProfiles>
+
+</settings>
