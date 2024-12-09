@@ -20,7 +20,7 @@ class DeleteToDos {
         System.out.println("[BeforeEach] ToDo with ID " + Stash.expectedId + " created");
     }
 
-    /* PUT todos/  */
+    /* DELETE todos/  */
     @Test
     @Tag("Smoke")
     @DisplayName("Delete ToDo")
@@ -28,8 +28,36 @@ class DeleteToDos {
         stepDefs.deleteToDo(Stash.expectedId);
         stepDefs.getToDoList();
         stepDefs.assertIdNotExist(Stash.expectedId);
-
     }
 
+    @Test
+    @Tag("Regress")
+    @DisplayName("Delete ToDo by previously deleted id")
+    void deleteToDoByDeletedId() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Delete ToDo with non-existing id")
+    void deleteToDoWithNonExistingId() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Delete ToDo without id value in query")
+    void deleteToDoWithoutId() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Sen request to delete ToDo with invalid query parameter") //e.g. string
+    void deleteToDoWithInvalidQueryParameter() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Delete ToDo without authentication")
+    void deleteToDoWithoutAuth() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Send request to invalid route")
+    void sendDeleteRequestToInvalidRoute() {}
 
 }

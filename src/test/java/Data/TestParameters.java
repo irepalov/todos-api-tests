@@ -28,10 +28,8 @@ public class TestParameters {
 
     static Stream<Arguments> completedValues() {
         return Stream.of(
-                //255 symbols
-                Arguments.of(true),
-                //1 symbol
-                Arguments.of(false)
+                Arguments.of(true, false),
+                Arguments.of(false, true)
         );
     }
 }

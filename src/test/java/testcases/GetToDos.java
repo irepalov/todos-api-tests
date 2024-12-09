@@ -2,10 +2,7 @@ package testcases;
 
 import Data.Stash;
 import Helpers.TestHelpers;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import stepdefs.StepDefs;
 
 @DisplayName("GET ToDos API tests")
@@ -33,6 +30,7 @@ class GetToDos {
 
     /* GET todos/  */
     @Test
+    @Tag("Smoke")
     @DisplayName("Get ToDos list")
     void getToDosList() {
         stepDefs.getToDoList();
@@ -40,5 +38,43 @@ class GetToDos {
         stepDefs.assertResponseBodyIsNotEmpty();
     }
 
+    @Test
+    @Tag("Smoke")
+    @DisplayName("Verify that the offset query is functioning correctly") // e.g. /todos?offset=8
+    void getToDosListCheckOffsetWorksCorrectly() {}
+
+    @Test
+    @Tag("Smoke")
+    @DisplayName("Verify that the limit query is functioning correctly") // e.g. /todos?limit=5
+    void getToDosListCheckLimitWorksCorrectly() {}
+
+    @Test
+    @Tag("Smoke")
+    @DisplayName("Verify that the limit and offset queries is functioning correctly")// e.g. /todos?limit=5&offset=10
+    void getToDosListCheckLimitAndOffsetWorksCorrectly() {}
+
+    @Test
+    @Tag("Smoke")
+    @DisplayName("Verify that the offset query is functioning correctly when only one ToDos in the list")
+    void getToDosListCheckOffsetWhenOneToDoExist() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Send GET ToDos request with offset value 0")
+    void getToDosListOffsetZero() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Send GET ToDos request with limit value 0")
+    void getToDosListLimitZero() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Get ToDos list without authentication")// it is working now without authorization. What the expected result?
+    void getToDosListWithoutAuthentication() {}
+
+    @Test
+    @DisplayName("Send GET ToDos request to invalid route")
+    void sendGetToDosRequestToInvalidRoute() {}
 
 }

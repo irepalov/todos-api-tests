@@ -70,6 +70,7 @@
             <artifactId>owner</artifactId>
             <version>${owner.version}</version>
         </dependency>
+
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
