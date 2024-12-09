@@ -44,17 +44,31 @@ public class StepDefs {
     }
 
     /**
-     * check ID is exist in the list.
+     * check text field value equal expected
      */
     public void assertTextFieldValueEqualExpected(String expectedTextValue, long toDoId) {
-        //find ToDo_object by ID
         ToDoJson matchedToDo = Stash.toDosListFromResponse.stream().filter(t -> t.getId() == Stash.expectedId).findFirst().orElse(null);
+        assert matchedToDo != null;
         Assertions.assertEquals(
                 expectedTextValue,
                 matchedToDo.getText(),
                 "[API] ID " + Stash.expectedId + " doesn't contain expected text value; instead, it contains:  " + matchedToDo.getText()
         );
         logger.info("[API] Check actualTextValue is equal {}", expectedTextValue);
+    }
+
+    /**
+     * check completed value equal expected
+     */
+    public void assertCompletedValueEqualExpected(boolean expectedCompletedValue) {
+        ToDoJson matchedToDo = Stash.toDosListFromResponse.stream().filter(t -> t.getId() == Stash.expectedId).findFirst().orElse(null);
+        assert matchedToDo != null;
+        Assertions.assertEquals(
+                expectedCompletedValue,
+                matchedToDo.isCompleted(),
+                "[API] ID " + Stash.expectedId + "contain completed value that don't match expectedCompletedValue. It's contain:  " + matchedToDo.getText()
+        );
+        logger.info("[API] Check actualTextValue is equal {}", expectedCompletedValue);
     }
 
     /**
@@ -87,6 +101,7 @@ public class StepDefs {
                     "POST",
                     props.toDosEndpoint(),
                     body);
+            System.out.println("[API] ToDo with ID " + Stash.expectedId + " created");
             System.out.println("[API] Response status code: " + response.statusCode());
             if (response.statusCode() != 201) {
                 throw new RuntimeException("[API] Step failed: Expected status code 201 but received " + response.statusCode());

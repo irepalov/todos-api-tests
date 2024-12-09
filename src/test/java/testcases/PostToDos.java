@@ -55,4 +55,69 @@ class PostToDos {
     @MethodSource("Data.TestParameters#completedValues")
     void createToDosWithDifferentCompletedValues() {}
 
+    @Tag("Smoke")
+    @Tag("Regress")
+    @DisplayName("Create ToDos with invalid text values")
+    void createToDosWithInvalidTextValues() {}
+
+    @Tag("Regress")
+    @DisplayName("Create ToDos with valid text length")
+    void createToDosWithValidTextLength() {}
+
+    @Tag("Regress")
+    @DisplayName("Create ToDos with invalid text length")
+    void createToDosWithInvalidTextLength() {}
+
+    @Tag("Regress")
+    @DisplayName("Create without text field")
+    void createWithoutTextField() {}
+
+    @Tag("Regress")
+    @DisplayName("Create without id value")
+    void createWithoutIdValue() {}
+
+    @Tag("Regress")
+    @DisplayName("Create without completed value")
+    void createWithoutCompletedValue() {}
+
+    @Tag("Regress")
+    @DisplayName("Create with completed value in incorrect type")
+    void createWithCompletedValueInIncorrectType() {}
+
+    @Tag("Regress")
+    @DisplayName("Create with incorrect id type") //byte, short, int, float, double string
+    void createWithIncorrectIdType() {}
+
+    @Tag("Regress")
+    @DisplayName("Request without auth")
+    void requestWithoutAuth() {}
+
+    @Tag("Regress")
+    @DisplayName("Create todo with id that already exists")
+    void createTodoWithIdThatAlreadyExists() {}
+
+    @Tag("Regress")
+    @DisplayName("Create todo with text value that already exists")
+    void createTodoWithTextValueThatAlreadyExists() {}
+
+    @Tag("Regress")
+    @DisplayName("Request without body")
+    void requestWithoutBody() {}
+
+    @Tag("Regress")
+    @DisplayName("Request with body is empty")
+    void requestWithBodyIsEmpty() {}
+
+    @Tag("Regress")
+    @DisplayName("Create with text value in incorrect type")
+    void createWithTextValueInIncorrectType() {}
+
+    @Tag("Regress")
+    @DisplayName("Create an id that was deleted previously")
+    void createAnIdThatWasDeletedPreviously() {}
+
+    @Tag("Regress")
+    @DisplayName("POST request to incorrect route")
+    void postRequestToIncorrectRoute() {}
+
 }

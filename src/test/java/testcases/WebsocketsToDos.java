@@ -30,11 +30,38 @@ class WebsocketsToDos {
     @Test
     @Tag("Smoke")
     @DisplayName("Check created ToDo is returned in ws")
-    void createdToDoReturnedInWs() throws Exception {
+    void createdToDoReturnedInWs() {
         Stash.expectedId = TestHelpers.generateRandomId();
         stepDefs.createToDo(Stash.expectedId, "Smoke autotests text", false);
         stepDefs.assertToDoIdInWsEqualExpectedId(Stash.expectedId, Stash.wsResponseMessage);
     }
 
+    @Test
+    @Tag("Smoke")
+    @DisplayName("Check deleted ToDo is disappeared in ws")
+    void deletedToDoIsDisappearedInWs() {}
+
+    @Test
+    @Tag("Smoke")
+    @DisplayName("Check updated ToDo text value is changed in ws") // now it's not changed
+    void updatedToDoTextValueChangedInWs() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Check updated ToDo completed value is changed in ws") // now it's not changed
+    void updatedToDoCompletedValueChangedInWs() {}
+
+    @Test
+    @Tag("Regress")
+    @DisplayName("Check updated ToDo id value is changed in ws") // now it's not changed
+    void updatedToDoIdValueChangedInWs() {}
+
+    @Tag("Regress")
+    @DisplayName("Check message about created ToDo appears within 1 sec") // depending on requirements
+    void checkCreatedToDoAppearsWithinExactTime() {}
+
+    @Tag("Regress")
+    @DisplayName("Check diferent ToDO types appears depending on API requests sent") // check that ToDos type changed from new_todo to changed_todo (seems like it should work like this)
+    void checkToDoTypesInWs() {}
 
 }
